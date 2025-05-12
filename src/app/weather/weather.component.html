@@ -11,7 +11,14 @@
     </section>
 
     <section class="results-section" *ngIf="cittaDaMostrare && !isLoading && !errorMessage">
-        <h2>Risultati per {{ cittaDaMostrare }}</h2>
+        <h2>
+            Risultati per {{ cittaDaMostrare }}
+            <button
+        *ngIf="cittaDaMostrare" class="favorite-toggle-btn"
+        (click)="toggleFavorite()"
+        title="{{ isCurrentCityFavorite ? 'Rimuovi dai preferiti' : 'Aggiungi ai preferiti' }}">
+        {{ isCurrentCityFavorite ? '★ Rimuovi' : '☆ Aggiungi' }} </button>
+        </h2>
         <div class="weather-info">
             <p>
                 <img *ngIf="iconaMeteoUrl" [src]="iconaMeteoUrl" [alt]="condizioniMeteo" class="weather-icon-img">
@@ -24,4 +31,18 @@
     <section *ngIf="isLoading" class="loading-section">
         <div class="spinner"></div> <p>Caricamento dati meteo in corso...</p>
     </section>
+
+    <section class="favorites-section" *ngIf="favoriteCities.length > 0">
+    <h2>Città Preferite</h2>
+    <ul class="favorites-list">
+        <li *ngFor="let city of favoriteCities" class="favorite-item">
+            <span class="favorite-city-name" (click)="searchFavorite(city)" title="Cerca {{ city }}">
+                {{ city }}
+            </span>
+            <button class="remove-favorite-btn" (click)="removeFavorite(city)" title="Rimuovi {{ city }} dai preferiti">
+                &times; </button>
+        </li>
+    </ul>
+</section>
+
 </main>
