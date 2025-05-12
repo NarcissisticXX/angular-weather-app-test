@@ -152,6 +152,7 @@ export class WeatherComponent implements OnInit { // Implementa OnInit
 
     // Leggi API Key dall'ambiente
     const apiKey = environment.openWeatherApiKey;
+  
 
     // Controllo sicurezza API Key
     if (!apiKey) {
