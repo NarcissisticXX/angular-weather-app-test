@@ -1,0 +1,177 @@
+/* In src/app/weather/weather.component.css */
+
+/* Stili generali per il componente, se necessario */
+main {
+    width: 90%;
+    max-width: 700px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.input-section, .results-section, .loading-section {
+    margin-bottom: 30px;
+}
+
+.input-section h2, .results-section h2 {
+    font-family: 'Nunito Sans', sans-serif; /* Assicurati che il font sia applicato se non globale */
+    color: #0056b3;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Stile per il Form (input e pulsante) */
+.search-form {
+    display: flex; /* Attiva Flexbox per allineare input e pulsante */
+    gap: 10px; /* Spazio tra input e pulsante */
+    align-items: stretch; /* Assicura che gli elementi si estendano verticalmente se hanno altezze diverse */
+}
+
+.city-input {
+    flex-grow: 1; /* L'input occupa lo spazio orizzontale rimanente */
+    padding: 10px 12px; /* Aumentato leggermente il padding */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-family: 'Nunito Sans', sans-serif; /* Eredita o specifica il font */
+    box-sizing: border-box; /* Importante per width: 100% nelle media query */
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.city-input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); /* Stile di focus più moderno */
+}
+
+.search-button {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-family: 'Nunito Sans', sans-serif; /* Eredita o specifica il font */
+    cursor: pointer; /* << CURSORE A MANO PER STATO NORMALE */
+    transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+    white-space: nowrap; /* Evita che il testo del bottone vada a capo */
+    box-sizing: border-box; /* Importante per width: 100% nelle media query */
+}
+
+.search-button:hover:not([disabled]) {
+    background-color: #218838;
+    transform: scale(1.03);
+}
+
+.search-button:active:not([disabled]) {
+    transform: scale(0.98);
+}
+
+.search-button:disabled {
+    background-color: #cccccc;
+    color: #666666;
+    cursor: not-allowed; /* Cursore per stato disabilitato */
+    transform: scale(1); /* Resetta lo scale se disabilitato */
+}
+
+/* Stile per l'area dei risultati e messaggi */
+.results-section {
+    animation: fadeInSlideUp 0.5s ease-out forwards;
+}
+
+.weather-info p {
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+.weather-info strong {
+    color: #333;
+    font-weight: 600; /* O il peso SemiBold del font se importato */
+}
+
+.weather-icon-img {
+    animation: popIn 0.5s ease-out forwards;
+    display: block;
+    margin: 0 auto 10px auto;
+    max-width: 100px;
+}
+
+@keyframes popIn {
+  0% { opacity: 0; transform: scale(0.5); }
+  80% { opacity: 1; transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes fadeInSlideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Sezione Caricamento */
+.loading-section {
+    text-align: center;
+    padding: 20px;
+    color: #007bff;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+.spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #007bff;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 10px auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Messaggio di Errore */
+.error-message {
+    color: #721c24; /* Colore testo più scuro per contrasto */
+    background-color: #f8d7da; /* Sfondo leggermente rosso */
+    border: 1px solid #f5c6cb; /* Bordo coordinato */
+    padding: 10px 15px;
+    border-radius: 4px;
+    margin-top: 15px; /* Spazio dal form */
+    font-family: 'Nunito Sans', sans-serif;
+    animation: fadeIn 0.3s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+
+/* Media Query per schermi più piccoli (es. smartphone) */
+@media (max-width: 600px) {
+    .search-form {
+        flex-direction: column; /* Input e pulsante uno sotto l'altro */
+        /* gap: 10px; // Il gap si applicherà verticalmente, il che va bene */
+    }
+
+    .city-input,
+    .search-button {
+        width: 100%; /* Occupano tutta la larghezza disponibile */
+        /* flex-grow: 0; // Rimuovi o imposta a 0 se necessario, width:100% dovrebbe bastare */
+    }
+
+    /* Eventuali altri aggiustamenti per schermi piccoli */
+    main {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .input-section h2, .results-section h2 {
+        font-size: 1.5rem; /* Titoli leggermente più piccoli */
+    }
+}

@@ -1,0 +1,27 @@
+<main>
+    <section class="input-section">
+        <h2>Cerca una Città</h2>
+        <form (ngSubmit)="handleSearch()" class="search-form"> 
+            <input type="text" id="cityInput" placeholder="Es. Roma, Milano..." [(ngModel)]="inputCittaValue" name="cityInputForNgModel" required>
+            <button type="submit" class="search-button" [disabled]="isLoading || !inputCittaValue.trim()">
+                {{ isLoading ? 'Caricamento...' : 'Cerca' }} 
+            </button>    
+        </form>
+        <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+    </section>
+
+    <section class="results-section" *ngIf="cittaDaMostrare && !isLoading && !errorMessage">
+        <h2>Risultati per {{ cittaDaMostrare }}</h2>
+        <div class="weather-info">
+            <p>
+                <img *ngIf="iconaMeteoUrl" [src]="iconaMeteoUrl" [alt]="condizioniMeteo" class="weather-icon-img">
+            </p>
+            <p><strong>Temperatura:</strong> {{ temperaturaCorrente }} °C</p>
+            <p><strong>Condizioni:</strong> {{ condizioniMeteo }}</p>
+        </div>
+    </section>
+
+    <section *ngIf="isLoading" class="loading-section">
+        <div class="spinner"></div> <p>Caricamento dati meteo in corso...</p>
+    </section>
+</main>

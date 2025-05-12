@@ -1,0 +1,22 @@
+/*Stile per l'Header*/
+header {
+    background-color: #007bff;
+    color: white;
+    padding: 1rem 0; /* 1rem sopra/sotto, 0 sinistra/destra */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2rem; /*dimensioni del titolo*/
+}
+
+/* Stile per il Footer */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #343a40;
+    color: #f8f9fa; /*colore chiaro*/
+    font-size: 0.9rem;
+}
