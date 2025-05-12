@@ -49,7 +49,7 @@ export class WeatherComponent {
   inputCittaValue: string = 'Catanzaro'; // Valore iniziale per l'input
   errorMessage: string | null = null; // Per mostrare errori API
 
-  private apiKey = "60b6d82c1b00be1baff996064cf61a70"; 
+  
   private apiUrlBase = "https://api.openweathermap.org/data/2.5/weather";
 
   // Inietta HttpClient
