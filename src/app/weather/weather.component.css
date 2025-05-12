@@ -175,3 +175,81 @@ main {
         font-size: 1.5rem; /* Titoli leggermente più piccoli */
     }
 }
+
+/* In src/app/weather/weather.component.css */
+
+/* ... (stili esistenti) ... */
+
+/* Pulsante Aggiungi/Rimuovi preferito vicino al titolo */
+.favorite-toggle-btn {
+  margin-left: 15px;
+  background: none;
+  border: 1px solid #007bff;
+  color: #007bff;
+  border-radius: 4px;
+  padding: 3px 8px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: all 0.2s ease;
+  vertical-align: middle; /* Allinea meglio con il testo del titolo */
+}
+
+.favorite-toggle-btn:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+/* Sezione Lista Preferiti */
+.favorites-section {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+}
+
+.favorites-section h2 {
+    margin-bottom: 15px; /* Spazio sotto titolo lista */
+}
+
+.favorites-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap; /* Va a capo se non c'è spazio */
+  gap: 10px; /* Spazio tra gli elementi */
+}
+
+.favorite-item {
+  display: flex;
+  align-items: center;
+  background-color: #e9ecef;
+  padding: 5px 12px; /* Leggermente più padding */
+  border-radius: 15px;
+  font-size: 0.95em;
+}
+
+.favorite-city-name {
+  cursor: pointer;
+  margin-right: 8px;
+  transition: color 0.2s ease;
+}
+
+.favorite-city-name:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+.remove-favorite-btn {
+  background: none;
+  border: none;
+  color: #dc3545;
+  cursor: pointer;
+  font-size: 1.3em; /* Leggermente più grande per cliccabilità */
+  line-height: 1;
+  padding: 0 3px;
+  margin-left: 2px; /* Piccolo spazio dal nome */
+}
+
+.remove-favorite-btn:hover {
+  color: #a71d2a;
+}
